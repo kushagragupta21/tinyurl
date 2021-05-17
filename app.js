@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const ShortUrl = require('./models/shortUrl');
 const app = express();
 
-
+const port = process.env.PORT|| 5000
 mongoose.connect('mongodb://localhost/urlShortner',{
     useNewUrlParser: true,
     useUnifiedTopology:true
@@ -32,4 +32,4 @@ app.get('/:shortUrl',async (req, res) =>{
    res.redirect(shorturl.full);
 })
 
-app.listen(process.env.PORT || 5000);
+app.listen(port);
