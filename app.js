@@ -4,11 +4,8 @@ const mongoose = require('mongoose');
 const ShortUrl = require('./models/shortUrl');
 const app = express();
 
-const port = process.env.PORT|| 5000
-mongoose.connect('mongodb://localhost/urlShortner',{
-    useNewUrlParser: true,
-    useUnifiedTopology:true
-})
+const port = process.env.PORT
+require('./db/mongoose')
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 
